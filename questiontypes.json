@@ -1,0 +1,23 @@
+[
+{
+  "model": "surveys.questiontypes",
+  "pk": 1,
+  "fields": {
+    "name": "Один вариант"
+  }
+},
+{
+  "model": "surveys.questiontypes",
+  "pk": 2,
+  "fields": {
+    "name": "Несколько вариантов"
+  }
+},
+{
+  "model": "surveys.questiontypes",
+  "pk": 3,
+  "fields": {
+    "name": "Ответ текстом"
+  }
+}
+]
