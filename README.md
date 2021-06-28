@@ -22,4 +22,5 @@
 
 ### Установка
 
-git clone 
+git clone https://github.com/mikepro-alfamail-ru/fabrique_surveys.git
+
