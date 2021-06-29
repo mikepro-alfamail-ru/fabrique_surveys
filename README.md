@@ -24,3 +24,85 @@
 
 git clone https://github.com/mikepro-alfamail-ru/fabrique_surveys.git
 
+pip -r requirements.txt
+
+Настроить DATABASES в settings.py под ваш вариант БД
+
+manage.py migrate
+
+manage.py createsuperuser
+
+manage.py runserver
+
+### Описание API
+
+#### /api/surveys
+
+*GET* получить информацию об опросах. Пример ответа ниже:
+
+```
+[
+    {
+        "id": 20,
+        "title": "Название опроса",
+        "start_at": "2003-03-03",
+        "finish_at": "2021-07-07",
+        "description": "Описание опроса",
+        "question": [
+            {
+                "question": "Наименование вопроса",
+                "type": 1,
+                "answervariant": [
+                    {
+                        "title": "Вариант ответа"
+                    }
+                ]
+            },
+            {
+                "question": "Наименование вопроса",
+                "type": 1,
+                "answervariant": []
+            }
+        ]
+    }
+]
+```
+
+*POST* - создать новый опрос. Авторизация через BasicAuth, пользователь - суперюзер в джанго
+
+*PATCH* /api/surveys/<_ id _> - Обновить опрос. Работает только с полями title, finish_at, description
+
+Авторизация аналогично *POST*
+
+#### /api/questions
+
+Методы и авторизация аналогичны **surveys** 
+
+#### /api/answervariants
+
+Методы и авторизация аналогичны **surveys**
+
+#### /api/useranswers
+
+Передать в теле запроса параметр "user" для получения ответов пользователя
+
+Пример ответа:
+```
+[
+    {
+        "id": 1,
+        "user": 8888,
+        "answer": "jhasdjdsh",
+        "question": 5
+    },
+    {
+        "id": 2,
+        "user": 8888,
+        "answer": "asdasda",
+        "question": 4
+    }
+]
+```
+
+
+*POST* - записать ответ пользователя

@@ -59,11 +59,10 @@ class SurveyViewSet(ModelViewSet):
 
 
 class UserAnswerViewSet(ModelViewSet):
-    queryset = UserAnswer.objects.select_related()
+    queryset = UserAnswer.objects.all()
     serializer_class = UserAnswerSerializer
 
-    def create(self, request, *args, **kwargs):
-        ...
-
-    def update(self, request, *args, **kwargs):
-        ...
+    def filter_queryset(self, queryset):
+        queryset = super().filter_queryset(queryset)
+        queryset = queryset.filter(user=self.request.data.get('user'))
+        return queryset
