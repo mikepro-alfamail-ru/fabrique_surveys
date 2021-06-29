@@ -22,17 +22,23 @@
 
 ### Установка
 
+```
 git clone https://github.com/mikepro-alfamail-ru/fabrique_surveys.git
 
 pip -r requirements.txt
+```
 
 Настроить DATABASES в settings.py под ваш вариант БД
 
+```
 manage.py migrate
+
+manage.py loaddata questiontypes.json
 
 manage.py createsuperuser
 
 manage.py runserver
+```
 
 ### Описание API
 
