@@ -25,7 +25,7 @@
 ```
 git clone https://github.com/mikepro-alfamail-ru/fabrique_surveys.git
 
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 Настроить DATABASES в settings.py под ваш вариант БД
